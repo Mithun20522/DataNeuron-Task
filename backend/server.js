@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 
 const PORT = process.env.PORT || 3000;
 const MONGO_DB_URL = process.env.MONGO_DB_URL;

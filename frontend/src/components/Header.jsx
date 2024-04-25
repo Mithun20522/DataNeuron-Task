@@ -16,7 +16,7 @@ const Header = () => {
     e.preventDefault();
     try {
         dispatch(addDataStart());
-        const res = await fetch('http://localhost:8080/api/testdata/add-newdata',{
+        const res = await fetch('https://dataneuron-task-backend.onrender.com/api/testdata/add-newdata',{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'
@@ -46,7 +46,7 @@ const Header = () => {
     e.preventDefault();
     try {
         dispatch(updateDataStart());
-        const res = await fetch(`http://localhost:8080/api/testdata/update-data/${currentData ? currentData._id : ''}`,{
+        const res = await fetch(`https://dataneuron-task-backend.onrender.com/api/testdata/update-data/${currentData ? currentData._id : ''}`,{
             method:'PATCH',
             headers:{
                 'Content-Type':'application/json'

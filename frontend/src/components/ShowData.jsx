@@ -7,7 +7,7 @@ const ShowData = ({ window }) => {
   useEffect(() => {
     
     const getData = async() => {
-      const res = await fetch('http://localhost:8080/api/testdata/get-data',{method:'GET'});
+      const res = await fetch('https://dataneuron-task-backend.onrender.com/api/testdata/get-data',{method:'GET'});
       const resData = await res.json();
       if(res.ok){
         setData(resData);
