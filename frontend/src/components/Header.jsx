@@ -7,11 +7,10 @@ import { addDataFailure, addDataStart, addDataSuccess, updateDataStart, updateDa
 const Header = () => {
  const [isAddClicked, setIsAddClicked] = useState(false)
  const [isUpdateClicked, setIsUpdateClicked] = useState(false)
- const [isCountClicked, setIsCountClicked] = useState(false)
  const [addFormData, setAddFormData] = useState({});
  const [updateFormData, setUpdateFormData] = useState({});
  const dispatch = useDispatch();
- const {currentData}  = useSelector((state) => state.testdata);
+ const {currentData, apiHitCount}  = useSelector((state) => state.testdata);
 
  const handleAddNewData = async(e) => {
     e.preventDefault();
@@ -26,6 +25,7 @@ const Header = () => {
         });
         const data = await res.json();
         if(res.ok){
+          
           toast.success(data.message);
           dispatch(addDataSuccess(data.newData));
           setIsAddClicked(!isAddClicked);
@@ -108,9 +108,8 @@ const Header = () => {
                 </form>
             )
         }
-        <button onClick={() => setIsCountClicked(!isCountClicked)} className="bg-slate-500 rounded-md hover:bg-slate-700 px-2 py-1">Count</button>
     </div>
-    <span>API hit count: 0</span>
+        <span>Count: {apiHitCount ? apiHitCount : 0}</span>
     </div>
   )
 }

@@ -8,7 +8,7 @@ export const addNewData = async(req, res) => {
         if(data){
             return res.status(409).json({message:'This name already exist'});
         }
-        
+
         const newData = new Testdata({name, age});
         await newData.save();
         return res.status(201).json({message:'New data added', newData});

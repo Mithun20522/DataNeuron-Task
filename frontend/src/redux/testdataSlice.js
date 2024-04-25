@@ -4,6 +4,7 @@ const testdataSlice = createSlice({
     name:'testdata',
     initialState:{
         currentData:null,
+        apiHitCount:0,
         loading:false,
         error:null
     },
@@ -27,6 +28,7 @@ const testdataSlice = createSlice({
         },
         addDataSuccess: (state, action) => {
             state.currentData = action.payload;
+            state.apiHitCount++;
             state.loading = false;
             state.error = null;
         },
@@ -40,6 +42,7 @@ const testdataSlice = createSlice({
         },
         updateDataSuccess: (state, action) => {
             state.currentData = action.payload;
+            state.apiHitCount++;
             state.loading = false;
             state.error = null;
         },
