@@ -24,3 +24,15 @@ export const updateData = async(req, res) => {
         return res.status(500).json({message:error.message});
     }
 }
+
+export const getData = async(req, res) => {
+    try {
+        const data = await Testdata.find();
+        if(data.length === 0){
+            return res.status(404).json({message:'No data yet'});
+        }
+        return res.status(200).json(data[data.length - 1]);
+    } catch (error) {
+        return res.status(500).json({message:error.message}); 
+    }
+}
