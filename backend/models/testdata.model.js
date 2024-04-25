@@ -1,10 +1,15 @@
 import mongoose from 'mongoose';
 
 const testdataSchema = new mongoose.Schema({
-    content:{
+    name:{
         type:String,
         required:true,
-        trim:true
+        trim:true,
+        unique:true
+    },
+    age:{
+        type:Number,
+        required:true
     }
 }, {timestamps:true});
 
