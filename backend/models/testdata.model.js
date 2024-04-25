@@ -3,7 +3,8 @@ import mongoose from 'mongoose';
 const testdataSchema = new mongoose.Schema({
     content:{
         type:String,
-        required:true
+        required:true,
+        trim:true
     }
 }, {timestamps:true});
 

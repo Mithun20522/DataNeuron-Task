@@ -11,3 +11,16 @@ export const addNewData = async(req, res) => {
         return res.status(500).json({message:error.message});
     }
 }
+
+export const updateData = async(req, res) => {
+    try {
+
+        const {id} = req.params;
+        const updatedData = await Testdata.findByIdAndUpdate(id,req.body,{new:true});
+        if(!updatedData) return res.status(404).json({message:'Data not found'});
+        return res.status(200).json({message:'Data updated', updatedData});
+
+    } catch (error) {
+        return res.status(500).json({message:error.message});
+    }
+}
